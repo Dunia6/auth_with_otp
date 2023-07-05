@@ -8,11 +8,14 @@ class User(AbstractUser):
     username = None
     password = None
     email = models.EmailField(_('email address'), unique=True, null=False,blank=False)
-    otp = models.CharField(max_length=255,unique=True,blank=True,null=True)
-    otp_time = models.TimeField(default=timezone.now, null=True)
-    expire_time = models.TimeField(default=timezone.now, null=True)
-    
-    
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+
+class Otp_base(models.Model):
+    email = email = models.EmailField(_('email address'), unique=True, null=False,blank=False)
+    otp = models.IntegerField(unique=True,blank=True,null=True)
+    expire_time = models.IntegerField(null=True)
+    
+    def __str__(self):
+        return self.email + " " + str(self.otp)
