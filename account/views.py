@@ -32,4 +32,4 @@ def verify_code(request):
     if is_valid:
         return Response("Email Vérifié")
     else:
-        return Response("Probleme avec l'adresse email ou expiration du code de verification")
+        return Response("Probleme avec l'adresse email ou expiration du code de vérification")
