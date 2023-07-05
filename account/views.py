@@ -21,7 +21,6 @@ def get_email_from_user(request):
         send_mail('Verifier votre email', email_body,settings.EMAIL_HOST_USER,[email,])
         user = User.objects.get(email=email)
         print(user)
-        user.save(commit=False)
         user.otp = otp
         user.otp_time = otp_time
         user.expire_time = expire_time

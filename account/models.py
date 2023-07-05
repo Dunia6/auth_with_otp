@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
-import time
+from django.utils import timezone
 # # Create your models here.
 
 class User(AbstractUser):
@@ -9,8 +9,8 @@ class User(AbstractUser):
     password = None
     email = models.EmailField(_('email address'), unique=True, null=False,blank=False)
     otp = models.CharField(max_length=255,unique=True,blank=True,null=True)
-    otp_time = models.TimeField(default=time.time)
-    expire_time = models.TimeField(default=time.time)
+    otp_time = models.TimeField(default=timezone.now, null=True)
+    expire_time = models.TimeField(default=timezone.now, null=True)
     
     
 

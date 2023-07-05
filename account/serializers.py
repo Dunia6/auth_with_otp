@@ -12,7 +12,7 @@ class UserCreationSerializer(serializers.ModelSerializer):
             email = validated_data.get('email'),
             otp = validated_data.get('otp'),
             otp_time = validated_data.get('otp_time'),
-            expire_time = validated_data.get('expire_time'),
+            expire_time = validated_data.get('expire_time')
         )
         user.save()
 
