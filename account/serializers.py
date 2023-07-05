@@ -5,15 +5,14 @@ from .models import User
 class UserCreationSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = "__all__"
+        fields = ['email', 'otp', 'otp_time', 'expire_time']
     
     def create(self, validated_data):
         user = User.objects.create(
-            email = validated_data['email'],
-            otp = validated_data['otp'],
-            otp_time = validated_data['otp_time'],
-            expire_time = validated_data['expire_time'],
-            password = None
+            email = validated_data.get('email'),
+            otp = validated_data.get('otp'),
+            otp_time = validated_data.get('otp_time'),
+            expire_time = validated_data.get('expire_time'),
         )
         user.save()
 
