@@ -10,7 +10,6 @@ django-filter==23.2
 django-templated-mail==1.1.1
 djangorestframework==3.14.0
 djangorestframework-simplejwt==5.2.2
-djoser==2.2.0
 filelock==3.12.0
 idna==3.4
 Markdown==3.4.3
